@@ -4,21 +4,20 @@ import {
   Button,
   Chip,
   Container,
-  Paper,
   Stack,
   Typography,
 } from "@mui/material";
+
 import NorthEastRoundedIcon from "@mui/icons-material/NorthEastRounded";
 import TaskAltRoundedIcon from "@mui/icons-material/TaskAltRounded";
-import AccountBalanceWalletRoundedIcon from "@mui/icons-material/AccountBalanceWalletRounded";
-import CreditCardRoundedIcon from "@mui/icons-material/CreditCardRounded";
-import ReceiptLongRoundedIcon from "@mui/icons-material/ReceiptLongRounded";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 import { trackEvent } from "../utils/analytics";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
+import heroDashboard from "../assets/hero-dashboard.png";
 
 const REGISTER_URL = "https://app.yenomplanner.com/register";
+
 const WHATSAPP_URL =
   "https://wa.me/555197090862?text=Olá! Quero conhecer o YenomPlanner";
 
@@ -27,19 +26,26 @@ export default function HeroSection() {
     <Box
       sx={{
         position: "relative",
-        overflow: "hidden",
-        py: { xs: 8, md: 12 },
+        overflow: "visible",
+        py: { xs: 8, md: 10, lg: 12 },
         background:
           "radial-gradient(circle at top left, rgba(37,99,235,0.16), transparent 32%), radial-gradient(circle at top right, rgba(59,130,246,0.10), transparent 30%)",
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Stack
           direction={{ xs: "column", md: "row" }}
-          spacing={{ xs: 4, md: 5 }}
+          spacing={{ xs: 5, md: 4, lg: 2 }}
           alignItems="center"
         >
-          <Box sx={{ flex: 1 }}>
+          {/* LEFT SIDE */}
+          <Box
+            sx={{
+              width: { xs: "100%", md: "48%" },
+              maxWidth: { xs: "100%", md: 620 },
+              zIndex: 2,
+            }}
+          >
             <Chip
               label="Organização financeira com visão prática"
               sx={{
@@ -51,29 +57,35 @@ export default function HeroSection() {
             />
 
             <Typography
-              variant="h1"
               sx={{
-                fontSize: { xs: "2.5rem", sm: "3rem", md: "4.5rem" },
+                fontSize: { xs: "2.4rem", sm: "3rem", md: "4.1rem", lg: "4.5rem" },
+                fontWeight: 900,
                 lineHeight: 0.98,
                 letterSpacing: "-0.04em",
                 mb: 2,
+                maxWidth: 760,
               }}
             >
               Controle suas
-              <Box component="span" sx={{ color: "primary.main", display: "block" }}>
+              <Box
+                component="span"
+                sx={{
+                  display: "block",
+                  color: "primary.main",
+                }}
+              >
                 contas, faturas e lançamentos
               </Box>
               em um só lugar
             </Typography>
 
             <Typography
-              variant="h6"
               sx={{
+                fontSize: { xs: "1rem", md: "1.08rem", lg: "1.12rem" },
                 color: "text.secondary",
-                fontWeight: 400,
-                maxWidth: 700,
-                mb: 3,
-                lineHeight: 1.5,
+                maxWidth: 560,
+                mb: 4,
+                lineHeight: 1.6,
               }}
             >
               O YenomPlanner ajuda você a organizar a vida financeira com mais
@@ -81,18 +93,26 @@ export default function HeroSection() {
               contas correntes sem depender de planilhas confusas.
             </Typography>
 
-            <Stack direction={{ xs: "column", sm: "row" }} spacing={1.5} sx={{ mb: 3 }}>
+            {/* CTA */}
+            <Stack
+              direction={{ xs: "column", sm: "row" }}
+              spacing={2}
+              sx={{ mb: { xs: 4, md: 5 } }}
+            >
               <Button
                 variant="contained"
                 size="large"
                 href={REGISTER_URL}
                 endIcon={<NorthEastRoundedIcon />}
-                onClick={() => trackEvent("landing_register_clicked", { location: "hero" })}
+                onClick={() =>
+                  trackEvent("landing_register_clicked", { location: "hero" })
+                }
                 sx={{
                   minWidth: 220,
                   py: 1.5,
+                  px: 3,
                   borderRadius: 999,
-                  boxShadow: "0 18px 40px rgba(37,99,235,0.24)",
+                  boxShadow: "0 20px 50px rgba(37,99,235,0.30)",
                 }}
               >
                 Criar conta grátis
@@ -103,10 +123,13 @@ export default function HeroSection() {
                 size="large"
                 href={WHATSAPP_URL}
                 startIcon={<WhatsAppIcon />}
-                onClick={() => trackEvent("landing_whatsapp_clicked", { location: "hero" })}
+                onClick={() =>
+                  trackEvent("landing_whatsapp_clicked", { location: "hero" })
+                }
                 sx={{
                   minWidth: 220,
                   py: 1.5,
+                  px: 3,
                   borderRadius: 999,
                 }}
               >
@@ -115,157 +138,81 @@ export default function HeroSection() {
             </Stack>
           </Box>
 
-          <Box sx={{ flex: 1, width: "100%" }}>
-            <Paper
-              elevation={0}
+          {/* RIGHT SIDE IMAGE */}
+          <Box
+            sx={{
+              position: { xs: "relative", md: "absolute" },
+              right: { md: -120, lg: -160 },
+              top: { md: "50%" },
+              transform: { md: "translateY(-50%)" },
+              width: { md: "60%", lg: "65%" },
+              display: { xs: "none", md: "block" },
+              zIndex: 3,
+              pointerEvents: "none",
+            }}
+          >
+            <Box
+              component="img"
+              src={heroDashboard}
+              alt="YenomPlanner Dashboard"
               sx={{
-                p: { xs: 2, md: 3 },
-                borderRadius: 2,
-                border: "1px solid rgba(148,163,184,0.18)",
-                background:
-                  "linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.98))",
-                boxShadow: "0 30px 60px rgba(15,23,42,0.10)",
+                width: "100%",
+                height: "auto",
+                objectFit: "contain",
+                filter: "drop-shadow(0 50px 90px rgba(0,0,0,0.25))",
+                transform: "scale(1.1)",
               }}
-            >
-              <Stack spacing={2}>
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 2.2,
-                    borderRadius: 1.6,
-                    background: "rgba(37,99,235,0.06)",
-                    border: "1px solid rgba(37,99,235,0.10)",
-                  }}
-                >
-                  <Stack direction="row" justifyContent="space-between" alignItems="center">
-                    <Box>
-                      <Typography variant="body2" color="text.secondary">
-                        Saldo consolidado
-                      </Typography>
-                      <Typography variant="h5" sx={{ fontWeight: 950 }}>
-                        R$ 12.480,90
-                      </Typography>
-                    </Box>
-
-                    <AccountBalanceWalletRoundedIcon
-                      sx={{ fontSize: 34, color: "primary.main" }}
-                    />
-                  </Stack>
-                </Paper>
-
-                <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      flex: 1,
-                      p: 2,
-                      borderRadius: 1.6,
-                      border: "1px solid rgba(148,163,184,0.16)",
-                    }}
-                  >
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                      <Box>
-                        <Typography variant="body2" color="text.secondary">
-                          Faturas
-                        </Typography>
-                        <Typography sx={{ fontWeight: 900 }}>3 abertas</Typography>
-                      </Box>
-                      <CreditCardRoundedIcon color="primary" />
-                    </Stack>
-                  </Paper>
-
-                  <Paper
-                    elevation={0}
-                    sx={{
-                      flex: 1,
-                      p: 2,
-                      borderRadius: 1.6,
-                      border: "1px solid rgba(148,163,184,0.16)",
-                    }}
-                  >
-                    <Stack direction="row" justifyContent="space-between" alignItems="center">
-                      <Box>
-                        <Typography variant="body2" color="text.secondary">
-                          Lançamentos
-                        </Typography>
-                        <Typography sx={{ fontWeight: 900 }}>128 no mês</Typography>
-                      </Box>
-                      <ReceiptLongRoundedIcon color="primary" />
-                    </Stack>
-                  </Paper>
-                </Stack>
-
-                <Paper
-                  elevation={0}
-                  sx={{
-                    p: 2.2,
-                    borderRadius: 1.6,
-                    border: "1px solid rgba(148,163,184,0.16)",
-                  }}
-                >
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
-                    Organização prática
-                  </Typography>
-
-                  <Stack spacing={1}>
-                    <Stack direction="row" justifyContent="space-between">
-                      <Typography variant="body2">Contas correntes</Typography>
-                      <Typography variant="body2" sx={{ fontWeight: 800 }}>
-                        4 contas
-                      </Typography>
-                    </Stack>
-
-                    <Stack direction="row" justifyContent="space-between">
-                      <Typography variant="body2">Parcelamentos</Typography>
-                      <Typography variant="body2" sx={{ fontWeight: 800 }}>
-                        12 ativos
-                      </Typography>
-                    </Stack>
-
-                    <Stack direction="row" justifyContent="space-between">
-                      <Typography variant="body2">Categorias</Typography>
-                      <Typography variant="body2" sx={{ fontWeight: 800 }}>
-                        Personalizadas
-                      </Typography>
-                    </Stack>
-                  </Stack>
-                </Paper>
-              </Stack>
-            </Paper>
+            />
           </Box>
         </Stack>
-        <Stack spacing={1.2} sx={{ mt: 2 }} direction={"col"} justifyContent={"space-around"}>
-              <Stack direction="row" spacing={1} alignItems="center">
-                <TaskAltRoundedIcon sx={{ fontSize: 18, color: "#10B981" }} />
-                <Typography variant="body2" color="text.secondary">
-                  Sem planilhas confusas
-                </Typography>
-              </Stack>
 
-              <Stack direction="row" spacing={1} alignItems="center">
-                <TaskAltRoundedIcon sx={{ fontSize: 18, color: "#10B981" }} />
-                <Typography variant="body2" color="text.secondary">
-                  Comece em menos de 1 minuto
-                </Typography>
-              </Stack>
-
-              <Stack direction="row" spacing={1} alignItems="center">
-                <TaskAltRoundedIcon sx={{ fontSize: 18, color: "#10B981" }} />
-                <Typography variant="body2" color="text.secondary">
-                  Funciona no celular e computador
-                </Typography>
-              </Stack>
-
-              <Stack direction="row" spacing={1} alignItems="center">
-                <TaskAltRoundedIcon sx={{ fontSize: 18, color: "#10B981" }} />
-                <Typography variant="body2" color="text.secondary">
-                  Visão centralizada do seu financeiro
-                </Typography>
-              </Stack>
-
-              
-            </Stack>
+        {/* BULLETS */}
+        <Stack
+          direction={{ xs: "column", sm: "row" }}
+          spacing={{ xs: 1.2, sm: 2, md: 3 }}
+          useFlexGap
+          flexWrap="wrap"
+          justifyContent="space-between"
+          alignItems={{ xs: "flex-start", sm: "center" }}
+          sx={{
+            width: "100%",
+            mt: { xs: 4, md: 2 },
+            pt: { xs: 0, md: 1 },
+          }}
+        >
+          <Feature text="Sem planilhas confusas" />
+          <Feature text="Comece em menos de 1 minuto" />
+          <Feature text="Funciona no celular e computador" />
+          <Feature text="Visão centralizada do seu financeiro" />
+        </Stack>
       </Container>
     </Box>
+  );
+}
+
+function Feature({ text }) {
+  return (
+    <Stack
+      direction="row"
+      spacing={1}
+      alignItems="center"
+      sx={{
+        minWidth: { xs: "100%", sm: "auto" },
+        flex: { xs: "unset", md: 1 },
+        justifyContent: { xs: "flex-start", md: "center" },
+      }}
+    >
+      <TaskAltRoundedIcon sx={{ fontSize: 18, color: "#10B981", flexShrink: 0 }} />
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        sx={{
+          fontWeight: 500,
+          whiteSpace: "nowrap",
+        }}
+      >
+        {text}
+      </Typography>
+    </Stack>
   );
 }
