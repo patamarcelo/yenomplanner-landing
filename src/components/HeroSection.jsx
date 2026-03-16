@@ -34,7 +34,7 @@ export default function HeroSection() {
           "radial-gradient(circle at top left, rgba(37,99,235,0.16), transparent 32%), radial-gradient(circle at top right, rgba(59,130,246,0.10), transparent 30%)",
       }}
     >
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
+      <Container  sx={{ position: "relative", zIndex: 1, maxWidth: "1200px"  }}>
         <Stack
           direction={{ xs: "column", md: "row" }}
           spacing={{ xs: 5, md: 4, lg: 2 }}
@@ -189,7 +189,7 @@ export default function HeroSection() {
                 iconColor="#16A34A"
                 sx={{
                   top: { md: "8%", lg: "-4%" },
-                  right: { md: "-13%", lg: "-11%" },
+                  right: { md: "-13%", lg: "-4%" },
                   zIndex: 4,
                 }}
               />
@@ -203,7 +203,7 @@ export default function HeroSection() {
                 iconColor="#2563EB"
                 sx={{
                   top: { md: "37%", lg: "32%" },
-                  right: { md: "-7%", lg: "-19%" },
+                  right: { md: "-7%", lg: "-9%" },
                   zIndex: 4,
                 }}
               />
@@ -217,7 +217,7 @@ export default function HeroSection() {
                 iconColor="#D97706"
                 sx={{
                   top: { md: "66%", lg: "68%" },
-                  right: { md: "-4%", lg: "-11%" },
+                  right: { md: "-4%", lg: "-4%" },
                   zIndex: 4,
                 }}
               />
