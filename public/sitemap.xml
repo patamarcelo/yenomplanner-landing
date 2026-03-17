@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
- xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yenomplanner.com/</loc>
-    <priority>1.0</priority>
+    <loc>https://www.yenomplanner.com/</loc>
   </url>
-
   <url>
-    <loc>https://yenomplanner.com/#benefits</loc>
-    <priority>0.8</priority>
+    <loc>https://www.yenomplanner.com/controle-financeiro-pessoal</loc>
   </url>
-
   <url>
-    <loc>https://yenomplanner.com/#how-it-works</loc>
-    <priority>0.8</priority>
+    <loc>https://www.yenomplanner.com/controle-cartao-de-credito</loc>
   </url>
-
+  <url>
+    <loc>https://www.yenomplanner.com/controle-de-gastos</loc>
+  </url>
+  <url>
+    <loc>https://www.yenomplanner.com/planejamento-financeiro</loc>
+  </url>
 </urlset>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Container, Stack, Typography, Button } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -25,6 +25,10 @@ export default function Footer() {
             Organização financeira com visão mais clara e prática
           </Typography>
         </Stack>
+        <Button href="/controle-financeiro-pessoal">Controle financeiro pessoal</Button>
+<Button href="/controle-cartao-de-credito">Controle de cartão de crédito</Button>
+<Button href="/controle-de-gastos">Controle de gastos</Button>
+<Button href="/planejamento-financeiro">Planejamento financeiro</Button>
       </Container>
     </Box>
   );

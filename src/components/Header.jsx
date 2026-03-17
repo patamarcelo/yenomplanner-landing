@@ -11,9 +11,12 @@ import {
 
 import { trackEvent } from "../utils/analytics";
 import logo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const REGISTER_URL = "https://app.yenomplanner.com/register";
 const LOGIN_URL = "https://app.yenomplanner.com/login";
+
+
 
 export default function Header() {
   return (
@@ -29,12 +32,26 @@ export default function Header() {
     >
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ minHeight: 76, justifyContent: "space-between" }}>
-          <Stack direction="row" spacing={1.5} alignItems="center">
+          <Stack
+            direction="row"
+            spacing={1.5}
+            alignItems="center"
+            component={Link}
+            to="/"
+            sx={{
+              textDecoration: "none",
+              cursor: "pointer",
+            }}
+          >
             <Box
               component="img"
               src={logo}
               alt="YenomPlanner"
-              sx={{ height: 68, width: "auto", display: "block" }}
+              sx={{
+                height: 68,
+                width: "auto",
+                display: "block",
+              }}
             />
           </Stack>
 
