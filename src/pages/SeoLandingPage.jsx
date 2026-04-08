@@ -21,7 +21,7 @@ const PAGE_MAP = {
         title: "Controle financeiro pessoal | YenomPlanner",
         description:
             "Organize gastos, cartões e finanças em um só lugar.",
-        canonical: "https://www.yenomplanner.com/controle-financeiro-pessoal",
+        canonical: "https://yenomplanner.com/controle-financeiro-pessoal",
 
         heroTitle: "Controle financeiro pessoal sem planilhas complicadas",
         heroSubtitle:
@@ -56,7 +56,7 @@ const PAGE_MAP = {
         title: "Controle de cartão de crédito | YenomPlanner",
         description:
             "Controle faturas e parcelas sem confusão.",
-        canonical: "https://www.yenomplanner.com/controle-cartao-de-credito",
+        canonical: "https://yenomplanner.com/controle-cartao-de-credito",
 
         heroTitle: "Nunca mais se perca na fatura do cartão",
         heroSubtitle:
@@ -91,7 +91,7 @@ const PAGE_MAP = {
         title: "Controle de gastos | YenomPlanner",
         description:
             "Entenda e organize seus gastos facilmente.",
-        canonical: "https://www.yenomplanner.com/controle-de-gastos",
+        canonical: "https://yenomplanner.com/controle-de-gastos",
 
         heroTitle: "Saiba exatamente para onde seu dinheiro vai",
         heroSubtitle:
@@ -126,7 +126,7 @@ const PAGE_MAP = {
         title: "Planejamento financeiro | YenomPlanner",
         description:
             "Planeje sua vida financeira com clareza.",
-        canonical: "https://www.yenomplanner.com/planejamento-financeiro",
+        canonical: "https://yenomplanner.com/planejamento-financeiro",
 
         heroTitle: "Planeje seu dinheiro com mais segurança",
         heroSubtitle:
